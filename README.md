@@ -1,5 +1,5 @@
 # TPLink Energy Monitor
-[![Build Status](https://travis-ci.org/jamesbarnett91/tplink-energy-monitor.svg?branch=master)](https://travis-ci.org/jamesbarnett91/tplink-energy-monitor)
+[![Build Status](https://travis-ci.org/mightyeagle329/energy-management-system.svg?branch=master)](https://travis-ci.org/mightyeagle329/energy-management-system)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=tplink-monitor&metric=alert_status)](https://sonarcloud.io/dashboard?id=tplink-monitor)
 
 A web based monitoring dashboard displaying energy usage data and statistics for TP-Link HS110 smart plugs.
@@ -22,8 +22,7 @@ Written in Node.js + Express, and fully responsive so works well on mobile devic
 # Setup
 You can use any of the following methods to get the project running:
 
-### Packaged executable
-The easiest way to run the project is to download one of the packaged executables from the [releases page](https://github.com/jamesbarnett91/tplink-monitor/releases). These are zip files containing a single executable file and some config. Just download the relevant file for your OS (Windows, Linux and MacOS available), extract the zip somewhere and double click executable. Then go to `localhost:3000` in your browser to access the dashboard.
+
 
 ### Docker
 Alternatively, you can pull the `jbarnett/tplink-energy-monitor` image and run that.
@@ -36,7 +35,7 @@ $ docker run -d --network host jbarnett/tplink-energy-monitor
 
 To run directly via NPM:
 ```sh
-$ git clone https://github.com/jamesbarnett91/tplink-energy-monitor && cd tplink-energy-monitor
+$ git clone https://github.com/mightyeagle329/energy-management-system && cd energy-management-system
 $ npm install
 $ npm start
 ```
@@ -68,7 +67,7 @@ If you are running the app from the Docker image and you want to change the logg
 
 Each logfile is a JSON array of entries. Each entry contains a timestamp in unix/epoch format `ts`, and a power reading in watts `pw`.
 
-If you want to analyse the log files in Excel or similar office tools you can convert the JSON file into csv format. This can be done numerous ways including online converters such as [konklone.io/json](https://konklone.io/json/), or if you are on a Unix system (or otherwise have access to `sed`) user [ballachango](https://github.com/jamesbarnett91/tplink-energy-monitor/issues/6#issuecomment-433663873) has posted this sed command `sed -e 's/},{/\\\n/g' -e 's/[]["tspw:}{\\]//g' <input.json> > log.csv`
+If you want to analyse the log files in Excel or similar office tools you can convert the JSON file into csv format. This can be done numerous ways including online converters such as [konklone.io/json](https://konklone.io/json/), or if you are on a Unix system (or otherwise have access to `sed`) user [ballachango](https://github.com/mightyeagle329/energy-management-system/issues/6#issuecomment-433663873) has posted this sed command `sed -e 's/},{/\\\n/g' -e 's/[]["tspw:}{\\]//g' <input.json> > log.csv`
 
 # Note
 Because the server needs access to your local network to scan for TP-Link device, you must run the server on the same network which your TP Link plugs are connected to. For the vast majority of people this shouldn't be an issue, and you can still use different network interfaces (i.e. plug(s) on WiFi and server on ethernet) as long as they all connect to the same network.
